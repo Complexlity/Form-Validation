@@ -5,6 +5,14 @@ module.exports = {
     container: {
       center: true,
     },
+    minWidth:{
+      '500': '500px',
+      '700': '700px',
+      '1200': '1200px',
+    },
+    maxWidth:{
+      '500': '500px',
+    },
     screens:{
       sm: '480px',
       md: '768px',

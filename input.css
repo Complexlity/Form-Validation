@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face{
+font-family: "Norse";
+src: url("/files/Norse-Bold.woff") format("woff");
+font-weight: normal;
+font-style: normal;
+}
+body{
+    height:100vh;
+}
+.image-div{
+    background-image:url('/files/halie-west-25xggax4bSA-unsplash.jpg');
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.logo{
+    font-family:"Norse", sans-serif;
+}
