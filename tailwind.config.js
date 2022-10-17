@@ -15,6 +15,7 @@ module.exports = {
     },
     maxWidth:{
       '500': '500px',
+      '52': '52ch',
     },
     screens:{
       sm: '480px',

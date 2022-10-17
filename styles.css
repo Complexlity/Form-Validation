@@ -599,6 +599,10 @@ video {
   max-width: 500px;
 }
 
+.max-w-52 {
+  max-width: 52ch;
+}
+
 .items-center {
   align-items: center;
 }
