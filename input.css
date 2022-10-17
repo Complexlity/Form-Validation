@@ -21,3 +21,11 @@ body{
 .logo{
     font-family:"Norse", sans-serif;
 }
+
+.form-elem p {
+    max-width: 52ch;
+}
+
+.form-elem span {
+    font-style: italic;
+}
