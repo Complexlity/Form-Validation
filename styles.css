@@ -551,12 +551,12 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.mt-36 {
-  margin-top: 9rem;
+.mt-28 {
+  margin-top: 7rem;
 }
 
-.mb-14 {
-  margin-bottom: 3.5rem;
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
 .mb-3 {
@@ -567,32 +567,8 @@ video {
   margin-left: 3rem;
 }
 
-.mt-10 {
-  margin-top: 2.5rem;
-}
-
-.mt-24 {
-  margin-top: 6rem;
-}
-
-.mt-28 {
-  margin-top: 7rem;
-}
-
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
-
 .mt-6 {
   margin-top: 1.5rem;
-}
-
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
-.mb-6 {
-  margin-bottom: 1.5rem;
 }
 
 .block {
@@ -673,7 +649,7 @@ video {
   background-color: rgb(191 219 254 / var(--tw-bg-opacity));
 }
 
-.bg-lighterGreen {
+.bg-lightGreen {
   --tw-bg-opacity: 1;
   background-color: rgb(89 109 72 / var(--tw-bg-opacity));
 }
@@ -683,9 +659,9 @@ video {
   padding-bottom: 0.75rem;
 }
 
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .py-2 {
@@ -698,25 +674,12 @@ video {
   padding-right: 4rem;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.pt-20 {
-  padding-top: 5rem;
+.pt-12 {
+  padding-top: 3rem;
 }
 
 .pl-12 {
   padding-left: 3rem;
-}
-
-.pt-16 {
-  padding-top: 4rem;
-}
-
-.pt-12 {
-  padding-top: 3rem;
 }
 
 .font-Norse {
@@ -748,7 +711,7 @@ video {
 
 .text-lighterGreen {
   --tw-text-opacity: 1;
-  color: rgb(89 109 72 / var(--tw-text-opacity));
+  color: rgb(139 163 117 / var(--tw-text-opacity));
 }
 
 @font-face{
@@ -777,12 +740,25 @@ body{
   border:2px solid #E5E7EB;
   border-radius:.25rem;
   padding-inline:5px;
-  padding-block:2px;
+  padding-block:1px;
   width:100%;
+  font-size:1.2rem;
+}
+
+.input-elem input:focus {
+  outline-color: orange;
+}
+
+.input-elem input:not(:focus):invalid {
+  outline-color:red;
+}
+
+.input-elem input:not(:focus):valid {
+  outline-color: green;
 }
 
 .input-elem{
-  grid-template-columns: 220px 220px;
+  grid-template-columns: 30ch 30ch;
   gap:20px 50px;
 }
 
@@ -800,4 +776,14 @@ section div {
 
 .main-elem {
   box-shadow: 0 2px 8px -2px rgb(195, 195, 195);
+}
+
+.hover\:bg-lighterGreen:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(139 163 117 / var(--tw-bg-opacity));
+}
+
+.hover\:underline:hover {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }

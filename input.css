@@ -23,12 +23,25 @@ body{
     border:2px solid #E5E7EB;
     border-radius:.25rem;
     padding-inline:5px;
-    padding-block:2px;
+    padding-block:1px;
     width:100%;
+    font-size:1.2rem;
+}
+
+.input-elem input:focus {
+    outline-color: orange;
+}
+
+.input-elem input:not(:focus):invalid {
+    outline-color:red;
+}
+
+.input-elem input:not(:focus):valid {
+    outline-color: green;
 }
 
 .input-elem{
-    grid-template-columns: 220px 220px;
+    grid-template-columns: 30ch 30ch;
     gap:20px 50px;
 }
 section label {

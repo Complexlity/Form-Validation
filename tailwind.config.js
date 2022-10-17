@@ -25,7 +25,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        lighterGreen: '#596D48'
+        lightGreen: '#596D48',
+        lighterGreen: '#8ba375'
       }
     },
   },
