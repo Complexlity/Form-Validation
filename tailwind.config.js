@@ -23,7 +23,11 @@ module.exports = {
       mg: '976px',
       xl: '1440px'
     },
-    extend: {},
+    extend: {
+      colors: {
+        lighterGreen: '#596D48'
+      }
+    },
   },
   plugins: [],
 }

@@ -10,38 +10,39 @@ font-style: normal;
 }
 body{
     height:100vh;
+    background:hsl(0, 0%, 96%);
 }
 .image-div{
     background-image:url('/files/halie-west-25xggax4bSA-unsplash.jpg');
-    object-fit: cover;
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-/* .form-elem p {
-    max-width: 52ch;
-} */
-
-.form-elem span {
-    font-style: italic;
+    min-height:100%;
 }
 
 .input-elem input {
-    outline:1px solid black;
-    /* width:100%; */
+    border:2px solid #E5E7EB;
+    border-radius:.25rem;
+    padding-inline:5px;
+    padding-block:2px;
+    width:100%;
 }
 
 .input-elem{
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: space-between;
-    justify-items: space-between;
+    grid-template-columns: 220px 220px;
+    gap:20px 50px;
 }
-
-.input-elem label{
-    display: block;
+section label {
+    display:block;
+    font-family:'Courier New', Courier, monospace;
+    text-transform:uppercase ;
+    font-weight:bold;
+    letter-spacing: 1px;
 }
 
 section div {
     outline: 1px solid red;
-    /* width:200px; */
+}
+
+.main-elem {
+    box-shadow: 0 2px 8px -2px rgb(195, 195, 195);
 }
