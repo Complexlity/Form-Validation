@@ -52,9 +52,6 @@ section label {
     letter-spacing: 1px;
 }
 
-section div {
-    outline: 1px solid red;
-}
 
 .main-elem {
     box-shadow: 0 2px 8px -2px rgb(195, 195, 195);
