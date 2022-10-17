@@ -18,14 +18,30 @@ body{
     background-repeat: no-repeat;
 }
 
-.logo{
-    font-family:"Norse", sans-serif;
-}
-
-.form-elem p {
+/* .form-elem p {
     max-width: 52ch;
-}
+} */
 
 .form-elem span {
     font-style: italic;
+}
+
+.input-elem input {
+    outline:1px solid black;
+    /* width:100%; */
+}
+
+.input-elem{
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    justify-items: space-between;
+}
+
+.input-elem label{
+    display: block;
+}
+
+section div {
+    outline: 1px solid red;
+    /* width:200px; */
 }

@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./*.html"],
   theme: {
+    fontFamily:{
+      "Norse": ["Norse",'sans-serif'],
+    },
     container: {
       center: true,
     },
