@@ -12,8 +12,5 @@
     "license": "ISC",
     "devDependencies": {
         "tailwindcss": "^3.1.8"
-    },
-    "dependencies": {
-        "normalize.css": "^8.0.1"
     }
 }
