@@ -2,11 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face{
 font-family: "Norse";
 src: url("/files/Norse-Bold.woff") format("woff");
 font-weight: normal;
 font-style: normal;
+}
+
+:root {
+    --valid: lime;
+    --focus: yellow;
+    --invalid:red;
 }
 body{
     height:100vh;
@@ -26,6 +33,7 @@ body{
     padding-block:1px;
     width:100%;
     font-size:1.2rem;
+    margin:c
 }
 
 .input-elem input:focus {
