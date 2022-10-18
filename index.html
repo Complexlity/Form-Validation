@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complex Form</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
     <div class="contain flex min-w-1200 h-full">
@@ -24,16 +25,40 @@
                 <br>
                 <p>You <span class="italic">know</span> you want to</p>
             </div>
-            <form action="" class="">
+            <form id='form' action="" class="">
                 <div class="main-elem | bg-white pl-12 py-4">
                     <h2 class="text-lg font-bold mb-3">Let's Do This!!</h2>
                     <section class="input-elem | grid">
-                        <div><label for="first-name">First Name</label><input type="text" autocomplete=off id="first-name" minlength="1" maxlength="20"></div>
-                        <div><label for="last-name">Last Name</label><input type="text" id="last-name" minlength="1" maxlength="20"></div>
-                        <div><label for="email">Email</label><input type="email" id="email"></div>
-                        <div><label for="phone">Phone Number</label><input type="tel" id="phone" pattern="[0-9]{9} || [0-9]{11}" maxlength="11"></div>
-                        <div><label for="password">Password</label><input type="password" id="password" minlength="5" maxlength="12"></div>
-                        <div><label for="confirm-password">Confirm Password</label><input type="password" id="confirm-password"></div>
+                        <div>
+                            <label for="first-name">First Name</label>
+                            <input type="text" autocomplete=off id="first-name" minlength="1" maxlength="20">
+                            <small></small>
+                        </div>
+                        <div>
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" minlength="1" maxlength="20">
+                            <small></small>
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email">
+                            <small></small>
+                        </div>
+                        <div>
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" pattern="[0-9]{9} || [0-9]{11}" maxlength="11">
+                            <small></small>
+                        </div>
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" minlength="5" maxlength="12">
+                            <small></small>
+                        </div>
+                        <div>
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" id="confirm-password">
+                            <small></small>
+                        </div>
                     </section>
                 </div> 
                 <button type="submit" class="ml-12 mt-6 border border-solid rounded-md py-2 px-16 text-white bg-lightGreen hover:bg-lighterGreen">Create Account</button>

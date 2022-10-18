@@ -1,17 +1,19 @@
 // //declare your variables for the text field and access DOM
 let form = document.querySelector('#form')
-const submit = document.querySelector('button[submit]')
-const inputs = document.querySelectorAll('.input-elem input')
-let email = inputs[2]
-let password = inputs[4]
-let confirmation = inputs[5]
+const submit = document.querySelector('button[type="submit"]')
+const inputs = document.querySelectorAll('.input-elem div')
 let firstName = inputs[0]
 let lastName = inputs[1]
+let email = inputs[2]
 let phoneNumber = inputs[3]
+let password = inputs[4]
+let confirmation = inputs[5]
+console.log(email, password, confirmation, firstName, lastName, phoneNumber)
 let successCount;
 let generalError = ' cannot be left blank'
 let emailInput = email.querySelector('input')
-let userNameInput = username.querySelector('input')
+let firstNameInput = firstName.querySelector('input')
+let lastNameInput = firstName.querySelector('input')
 let passwordInput = password.querySelector('input')
 let confiirmationInput = confirmation.querySelector('input')
 
@@ -22,12 +24,13 @@ function checkAll(e){
     
     //check email is  valid
     let emailValue = emailInput.value
-    let userNameValue = userNameInput.value 
+    // let userNameValue = userNameInput.value 
     let passwordValue = passwordInput.value
     let confirmationValue = confiirmationInput.value
 
     checkEmail(false, emailValue)
-    checkUserName(false, userNameValue)
+    checkUserName(false, firstNameInput)
+    checkUserName(false, lastNameInput)
     checkPassword(false, passwordValue)
     checkConfirmationPassword(false, confirmationValue, confiirmationInput)
 
@@ -37,7 +40,7 @@ successCount = submit.addEventListener('click', checkAll)
 
 
 form.addEventListener('submit', (e) => {
-    if (successCount != 4) e.preventDefault()
+    if (successCount != 6) e.preventDefault()
 })
 
 
@@ -66,9 +69,26 @@ function checkEmail(eventTaken, emailValue){
     
     function checkUserName(eventTaken, userNameValue){
         if (!userNameValue) userNameValue = this.value
+        
         //check that all fields have input
     userError = 'Username' + generalError
     successError(username, userNameValue, userError)
+    }
+    
+    
+
+    function checkName(eventTaken, nodeElement){
+        if(!nodeElement) {
+            nodeElement = this.parentNode
+            userNameValue = this.value
+        }
+        else {
+            let nodeInput = nodeElement.querySelector('input')
+            userNameValue = nodeInput.value
+        }  
+        userError = 'Username' + generalError
+        successError(nodeElement, userNameValue, userError)
+
     }
     
     
@@ -98,5 +118,6 @@ function checkEmail(eventTaken, emailValue){
     
     confiirmationInput.addEventListener('change', checkConfirmationPassword)
     emailInput.addEventListener('change', checkEmail)
-    userNameInput.addEventListener('change', checkUserName)
+    firstNameInput.addEventListener('change', checkUserName)
+    lastNameInput.addEventListener('change', checkUserName)
     passwordInput.addEventListener('change', checkPassword)
