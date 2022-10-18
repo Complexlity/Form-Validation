@@ -14,6 +14,9 @@ font-style: normal;
     --valid: lime;
     --focus: yellow;
     --invalid:red;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+      
 }
 body{
     height:100vh;
@@ -36,18 +39,6 @@ body{
     margin:c
 }
 
-.input-elem input:focus {
-    outline-color: orange;
-}
-
-.input-elem input:not(:focus):invalid {
-    outline-color:red;
-}
-
-.input-elem input:not(:focus):valid {
-    outline-color: green;
-}
-
 .input-elem{
     grid-template-columns: 30ch 30ch;
     gap:20px 50px;
@@ -64,3 +55,31 @@ section label {
 .main-elem {
     box-shadow: 0 2px 8px -2px rgb(195, 195, 195);
 }
+
+.input-elem input:focus {
+    outline:none;
+    border: 2px solid hsl(240, 100%, 70%);
+    box-shadow: 0px 2px 11px -1px rgba(0,0,0,0.75);;
+
+}
+
+.input-elem.success input {
+    border-color: var(--success-color);
+  }
+
+.form-control.error input {
+    border-color: var(--error-color);
+  }
+
+.form-control small {
+    color: var(--error-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+  }
+
+  .form-control.error small {
+    visibility: visible;
+  }
+ 

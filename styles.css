@@ -551,8 +551,12 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.mt-28 {
-  margin-top: 7rem;
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.mt-36 {
+  margin-top: 9rem;
 }
 
 .mb-6 {
@@ -571,10 +575,6 @@ video {
   margin-top: 1.5rem;
 }
 
-.mb-0 {
-  margin-bottom: 0px;
-}
-
 .block {
   display: block;
 }
@@ -591,8 +591,8 @@ video {
   height: 100%;
 }
 
-.h-28 {
-  height: 7rem;
+.h-32 {
+  height: 8rem;
 }
 
 .max-h-full {
@@ -648,11 +648,6 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-blue-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
-}
-
 .bg-lightGreen {
   --tw-bg-opacity: 1;
   background-color: rgb(89 109 72 / var(--tw-bg-opacity));
@@ -690,8 +685,8 @@ video {
   font-family: Norse, sans-serif;
 }
 
-.text-8xl {
-  font-size: 6rem;
+.text-7xl {
+  font-size: 4.5rem;
   line-height: 1;
 }
 
@@ -728,6 +723,14 @@ video {
   font-style: normal;
 }
 
+:root {
+  --valid: lime;
+  --focus: yellow;
+  --invalid:red;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+}
+
 body{
   height:100vh;
   background:hsl(0, 0%, 98%);
@@ -747,18 +750,7 @@ body{
   padding-block:1px;
   width:100%;
   font-size:1.2rem;
-}
-
-.input-elem input:focus {
-  outline-color: orange;
-}
-
-.input-elem input:not(:focus):invalid {
-  outline-color:red;
-}
-
-.input-elem input:not(:focus):valid {
-  outline-color: green;
+  margin:c
 }
 
 .input-elem{
@@ -778,6 +770,32 @@ section label {
   box-shadow: 0 2px 8px -2px rgb(195, 195, 195);
 }
 
+.input-elem input:focus {
+  outline:none;
+  border: 2px solid hsl(240, 100%, 70%);
+  box-shadow: 0px 2px 11px -1px rgba(0,0,0,0.75);
+}
+
+.input-elem.success input {
+  border-color: var(--success-color);
+}
+
+.form-control.error input {
+  border-color: var(--error-color);
+}
+
+.form-control small {
+  color: var(--error-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.form-control.error small {
+  visibility: visible;
+}
+
 .hover\:bg-lighterGreen:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(139 163 117 / var(--tw-bg-opacity));
@@ -787,3 +805,4 @@ section label {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
 }
+ 
