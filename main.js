@@ -9,12 +9,11 @@ let email = inputsDiv[2]
 let phoneNumber = inputsDiv[3]
 let password = inputsDiv[4]
 let confirmation = inputsDiv[5]
-console.log(email, password, confirmation, firstName, lastName, phoneNumber)
 let successCount;
 let generalError = ' cannot be left blank'
 let emailInput = email.querySelector('input')
 let firstNameInput = firstName.querySelector('input')
-let lastNameInput = firstName.querySelector('input')
+let lastNameInput = lastName.querySelector('input')
 let passwordInput = password.querySelector('input')
 let confiirmationInput = confirmation.querySelector('input')
 let phoneNumberInput = phoneNumber.querySelector('input')
@@ -27,14 +26,14 @@ function checkAll(e){
     let emailValue = emailInput.value
     let passwordValue = passwordInput.value
     let confirmationValue = confiirmationInput.value
-    let phoneValue = phoneInput.value
+    let phoneValue = phoneNumberInput.value
 
-    checkEmail(false, emailValue)
     checkName(false, firstNameInput)
     checkName(false, lastNameInput)
+    checkEmail(false, emailValue)
+    checkNumber(false, phoneValue)
     checkPassword(false, passwordValue)
     checkConfirmationPassword(false, confirmationValue, confiirmationInput)
-    checkNumber(false, phoneValue)
 }
 //add event listener for Submit button
 successCount = submit.addEventListener('click', checkAll)
@@ -71,10 +70,8 @@ function checkEmail(eventTaken, emailValue){
     function checkNumber(eventTaken, phoneValue){
         if(!phoneValue) phoneValue = this.value
         let phoneRegex = /\d{11}/g
-        console.log(phoneValue)
         
         let phoneCheck = phoneRegex.test(phoneValue)
-        console.log(phoneCheck)
         let phoneError = 'Phone Format: 11 digits number'
         if (!phoneValue) phoneError = 'Phone Number' + generalError
 
@@ -83,13 +80,14 @@ function checkEmail(eventTaken, emailValue){
     
 
     function checkName(eventTaken, nodeElement){
+        debugger
         if(!nodeElement) {
             nodeElement = this.parentNode
             userNameValue = this.value
         }
         else {
-            let nodeInput = nodeElement.querySelector('input')
-            userNameValue = nodeInput.value
+            userNameValue = nodeElement.value
+            nodeElement = nodeElement.parentNode
         }  
         userError = 'Username' + generalError
         successError(nodeElement, userNameValue, userError)
