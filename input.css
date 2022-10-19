@@ -11,9 +11,6 @@ font-style: normal;
 }
 
 :root {
-    --valid: lime;
-    --focus: yellow;
-    --invalid:red;
     --success-color: #2ecc71;
     --error-color: #e74c3c;
       
@@ -63,12 +60,17 @@ section label {
 
 }
 
-.input-elem.success input {
+.form-control{
+    position: relative;
+}
+
+.form-control.success input {
     border-color: var(--success-color);
   }
 
 .form-control.error input {
     border-color: var(--error-color);
+    margin-bottom:20px;
   }
 
 .form-control small {

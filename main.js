@@ -1,13 +1,14 @@
 // //declare your variables for the text field and access DOM
 let form = document.querySelector('#form')
 const submit = document.querySelector('button[type="submit"]')
-const inputs = document.querySelectorAll('.input-elem div')
-let firstName = inputs[0]
-let lastName = inputs[1]
-let email = inputs[2]
-let phoneNumber = inputs[3]
-let password = inputs[4]
-let confirmation = inputs[5]
+const inputsDiv = document.querySelectorAll('.form-control')
+const inputs = document.querySelectorAll('.form-control input')
+let firstName = inputsDiv[0]
+let lastName = inputsDiv[1]
+let email = inputsDiv[2]
+let phoneNumber = inputsDiv[3]
+let password = inputsDiv[4]
+let confirmation = inputsDiv[5]
 console.log(email, password, confirmation, firstName, lastName, phoneNumber)
 let successCount;
 let generalError = ' cannot be left blank'
@@ -29,8 +30,8 @@ function checkAll(e){
     let confirmationValue = confiirmationInput.value
 
     checkEmail(false, emailValue)
-    checkUserName(false, firstNameInput)
-    checkUserName(false, lastNameInput)
+    checkName(false, firstNameInput)
+    checkName(false, lastNameInput)
     checkPassword(false, passwordValue)
     checkConfirmationPassword(false, confirmationValue, confiirmationInput)
 
@@ -67,13 +68,6 @@ function checkEmail(eventTaken, emailValue){
     successError(email, emailCheck,emailError)
     }
     
-    function checkUserName(eventTaken, userNameValue){
-        if (!userNameValue) userNameValue = this.value
-        
-        //check that all fields have input
-    userError = 'Username' + generalError
-    successError(username, userNameValue, userError)
-    }
     
     
 
@@ -115,9 +109,19 @@ function checkEmail(eventTaken, emailValue){
     successError(confirmation, checkConfirmation, confirmationError)
     }
 
-    
+    function removeError(){
+        let parentElement = this.parentNode
+        if(parentElement.classList.contains('error')){
+            parentElement.classList.remove('error')
+        }
+    }
+
+    inputs.forEach(input => {
+        input.addEventListener('input', removeError)
+    })
+
     confiirmationInput.addEventListener('change', checkConfirmationPassword)
     emailInput.addEventListener('change', checkEmail)
-    firstNameInput.addEventListener('change', checkUserName)
-    lastNameInput.addEventListener('change', checkUserName)
+    firstNameInput.addEventListener('change', checkName)
+    lastNameInput.addEventListener('change', checkName)
     passwordInput.addEventListener('change', checkPassword)
