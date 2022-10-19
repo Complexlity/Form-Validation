@@ -15,7 +15,7 @@ let emailInput = email.querySelector('input')
 let firstNameInput = firstName.querySelector('input')
 let lastNameInput = lastName.querySelector('input')
 let passwordInput = password.querySelector('input')
-let confiirmationInput = confirmation.querySelector('input')
+let confirmationInput = confirmation.querySelector('input')
 let phoneNumberInput = phoneNumber.querySelector('input')
 
 function checkAll(e){
@@ -25,7 +25,7 @@ function checkAll(e){
     //check email is  valid
     let emailValue = emailInput.value
     let passwordValue = passwordInput.value
-    let confirmationValue = confiirmationInput.value
+    let confirmationValue = confirmationInput.value
     let phoneValue = phoneNumberInput.value
 
     checkName(false, firstNameInput)
@@ -33,7 +33,8 @@ function checkAll(e){
     checkEmail(false, emailValue)
     checkNumber(false, phoneValue)
     checkPassword(false, passwordValue)
-    checkConfirmationPassword(false, confirmationValue, confiirmationInput)
+    debugger
+    checkConfirmationPassword(false, confirmationValue, confirmationInput)
 }
 //add event listener for Submit button
 successCount = submit.addEventListener('click', checkAll)
@@ -61,7 +62,7 @@ function checkEmail(eventTaken, emailValue){
     if (!emailValue) emailValue = this.value
     let emailRegex = /\w*.?\w*@\w*\.\w*/
     let emailCheck = emailRegex.test(emailValue)
-    let emailError = 'Wrong email format'
+    let emailError = 'Wrong email format (eg. hello@world.com)'
     if (!emailValue) emailError= 'Email' + generalError
     
     successError(email, emailCheck,emailError)
@@ -72,7 +73,7 @@ function checkEmail(eventTaken, emailValue){
         let phoneRegex = /\d{11}/g
         
         let phoneCheck = phoneRegex.test(phoneValue)
-        let phoneError = 'Phone Format: 11 digits number'
+        let phoneError = 'Format: 11 digits number'
         if (!phoneValue) phoneError = 'Phone Number' + generalError
 
         successError(phoneNumber, phoneCheck, phoneError)
@@ -89,7 +90,7 @@ function checkEmail(eventTaken, emailValue){
             userNameValue = nodeElement.value
             nodeElement = nodeElement.parentNode
         }  
-        userError = 'Username' + generalError
+        userError = 'Name' + generalError
         successError(nodeElement, userNameValue, userError)
 
     }
@@ -97,6 +98,7 @@ function checkEmail(eventTaken, emailValue){
     
     function checkPassword(eventTaken, passwordValue){
         // check input length for password
+        // debugger
         if (passwordValue === undefined) passwordValue = this.value
       
     let passwordCheck = passwordValue.length >= 5
@@ -110,11 +112,17 @@ function checkEmail(eventTaken, emailValue){
     function checkConfirmationPassword(eventTaken, confirmationValue, passwordValue = this){
         passwordValue = passwordValue.parentNode.previousElementSibling.querySelector('input').value
         // check the two passwords match
-    let checkConfirmation = (confirmationValue == passwordValue) && confirmationValue
-    if (confirmationValue === undefined) confirmationValue = this.value; 
-    let confirmationError = 'Passwords are not the same'
-    if (!confirmationValue) confirmationError= 'Field' + generalError
-    successError(confirmation, checkConfirmation, confirmationError)
+        if (confirmationValue === undefined) {
+            confirmationValue = this.value; 
+        }
+        let checkConfirmation = (confirmationValue == passwordValue)
+       
+        let confirmationError = 'Passwords are not the same'
+        if (!confirmationValue) {
+            confirmationError= 'Field' + generalError
+            checkConfirmation = false
+        }
+            successError(confirmation, checkConfirmation, confirmationError)
     }
 
     function removeError(){
@@ -129,7 +137,7 @@ function checkEmail(eventTaken, emailValue){
     })
 
     phoneNumberInput.addEventListener('change', checkNumber)
-    confiirmationInput.addEventListener('change', checkConfirmationPassword)
+    confirmationInput.addEventListener('change', checkConfirmationPassword)
     emailInput.addEventListener('change', checkEmail)
     firstNameInput.addEventListener('change', checkName)
     lastNameInput.addEventListener('change', checkName)
