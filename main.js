@@ -17,7 +17,7 @@ let firstNameInput = firstName.querySelector('input')
 let lastNameInput = firstName.querySelector('input')
 let passwordInput = password.querySelector('input')
 let confiirmationInput = confirmation.querySelector('input')
-
+let phoneNumberInput = phoneNumber.querySelector('input')
 
 function checkAll(e){
     successCount = 0;
@@ -25,16 +25,16 @@ function checkAll(e){
     
     //check email is  valid
     let emailValue = emailInput.value
-    // let userNameValue = userNameInput.value 
     let passwordValue = passwordInput.value
     let confirmationValue = confiirmationInput.value
+    let phoneValue = phoneInput.value
 
     checkEmail(false, emailValue)
     checkName(false, firstNameInput)
     checkName(false, lastNameInput)
     checkPassword(false, passwordValue)
     checkConfirmationPassword(false, confirmationValue, confiirmationInput)
-
+    checkNumber(false, phoneValue)
 }
 //add event listener for Submit button
 successCount = submit.addEventListener('click', checkAll)
@@ -68,7 +68,18 @@ function checkEmail(eventTaken, emailValue){
     successError(email, emailCheck,emailError)
     }
     
-    
+    function checkNumber(eventTaken, phoneValue){
+        if(!phoneValue) phoneValue = this.value
+        let phoneRegex = /\d{11}/g
+        console.log(phoneValue)
+        
+        let phoneCheck = phoneRegex.test(phoneValue)
+        console.log(phoneCheck)
+        let phoneError = 'Phone Format: 11 digits number'
+        if (!phoneValue) phoneError = 'Phone Number' + generalError
+
+        successError(phoneNumber, phoneCheck, phoneError)
+    }
     
 
     function checkName(eventTaken, nodeElement){
@@ -87,11 +98,10 @@ function checkEmail(eventTaken, emailValue){
     
     
     function checkPassword(eventTaken, passwordValue){
-        //check input length for password
+        // check input length for password
         if (passwordValue === undefined) passwordValue = this.value
       
     let passwordCheck = passwordValue.length >= 5
-    // console.log(passwordCheck)
     let passwordError = 'Password must be at least 5 characters'
     if (!passwordValue) passwordError = 'Password' + generalError
     successError(password, passwordCheck, passwordError)
@@ -101,7 +111,7 @@ function checkEmail(eventTaken, emailValue){
     
     function checkConfirmationPassword(eventTaken, confirmationValue, passwordValue = this){
         passwordValue = passwordValue.parentNode.previousElementSibling.querySelector('input').value
-        //check the two passwords match
+        // check the two passwords match
     let checkConfirmation = (confirmationValue == passwordValue) && confirmationValue
     if (confirmationValue === undefined) confirmationValue = this.value; 
     let confirmationError = 'Passwords are not the same'
@@ -120,6 +130,7 @@ function checkEmail(eventTaken, emailValue){
         input.addEventListener('input', removeError)
     })
 
+    phoneNumberInput.addEventListener('change', checkNumber)
     confiirmationInput.addEventListener('change', checkConfirmationPassword)
     emailInput.addEventListener('change', checkEmail)
     firstNameInput.addEventListener('change', checkName)
